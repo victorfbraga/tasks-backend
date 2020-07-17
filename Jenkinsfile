@@ -18,9 +18,7 @@ pipeline {
                 steps {
                       withSonarQubeEnv('SONAR_LOCAL')  {
                         sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://localhost:9000 -Dsonar.login=0e82bbdd3574aec9b6c59cb0e1322496437e0f2f -Dsonar.java.binaries=target -Dsonar.coverage.exclusions=**/.mvn/**,**/src/test/**,**/model/**,**Aplication.java" 
-                      }
-
-                    
+                      }                
                 }
             }
             stage ('Quality Gate') {
@@ -45,5 +43,4 @@ pipeline {
             }
         }
     }
-
 }   
